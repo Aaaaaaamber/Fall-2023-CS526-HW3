@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4edb57640bce514b8b55796cff9aa7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 1
+  currentState: 0
   gameOverPanel: {fileID: 1934173516}
   playerWonPanel: {fileID: 546694792}
 --- !u!4 &239601555
