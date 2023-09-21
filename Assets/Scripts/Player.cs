@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Ghosts"))
         {
             GameManager.instance.GameOver();
+            Debug.Log("over");
         }
     }
 

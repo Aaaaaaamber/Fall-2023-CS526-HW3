@@ -9,6 +9,8 @@ public class ScenceChanger : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
         SceneManager.LoadScene("Background", LoadSceneMode.Additive);
+    
+       // SceneManager.LoadScene("All");
 
     }
 

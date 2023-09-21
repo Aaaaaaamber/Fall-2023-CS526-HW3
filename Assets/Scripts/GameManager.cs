@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         }
         // Initially hide the game over and player won panels.
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        Debug.Log("gameOver set false!");
         if (playerWonPanel != null) playerWonPanel.SetActive(false);
     }
 
@@ -44,31 +45,30 @@ public class GameManager : MonoBehaviour
             gameOverPanel.SetActive(true);
         }
 
-        // Optionally, if you want the game to pause at game over.
         Time.timeScale = 0;
-
         currentState = GameState.GameOver;
-        
         Debug.Log("Game Over!");
-
-        //RestartGame();
-
+        //SceneManager.LoadScene("end");
+        RestartGame();
+        Debug.Log("Restart Game!");
     }
 
     public void PlayerWon()
     {
         // RestartGame();
-        if (playerWonPanel != null)
+/*        if (playerWonPanel != null)
         {
             playerWonPanel.SetActive(true);
         }
-
+*/
         // Optionally, if you want the game to pause when player wins.
         Time.timeScale = 0;
 
         currentState = GameState.PlayerWon;
+       //layerWonPanel.SetActive(true);
         Debug.Log("Player Won!");
-
+        SceneManager.LoadScene("win");
+        RestartGame();
     }
 
     // Function to restart the game.
@@ -76,7 +76,9 @@ public class GameManager : MonoBehaviour
     {
         // Reset the game time scale if you've set it to 0 earlier.
         Time.timeScale = 1;
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Background", LoadSceneMode.Additive);
+        SceneManager.LoadScene("GameStart", LoadSceneMode.Additive);
+        currentState = GameState.Playing;
     }
 }
